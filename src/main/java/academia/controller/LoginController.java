@@ -58,7 +58,7 @@ public class LoginController extends HttpServlet {
 		}else {
 			
 			request.getSession().setAttribute("usuario_sesion", usuario);
-			request.getRequestDispatcher("privado/alumno.jsp").forward(request, response);
+			request.getRequestDispatcher("privado/alumno").forward(request, response);
 		}
 			
 			
