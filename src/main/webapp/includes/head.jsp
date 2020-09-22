@@ -4,6 +4,7 @@
     <head>
         <meta charset="utf-8">
         <title>Academia</title>
+        <base href="<%=request.getContextPath()%>/">
 	    <meta name="description" content="Ipartek formación"> 
         <meta name="viewport" content="width=device-width, user-scalable=no">
         <link rel="stylesheet" type="text/css" href="css/style.css">

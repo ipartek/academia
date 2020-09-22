@@ -47,12 +47,14 @@ public class LoginController extends HttpServlet {
 			
 		}else if ( usuario.getRol() == Usuario.ROL_PROFESOR ) {
 			
-			int idProfersor = usuario.getId();			
-			ArrayList<Curso> cursos = new ArrayList<Curso>();
-			// Crea el DAO de Cursos y obtento todos los cursos de ese profesor por su id
-			request.setAttribute("cursos", cursos);
 			request.getSession().setAttribute("usuario_sesion", usuario);
-			request.getRequestDispatcher("privado/profesor.jsp").forward(request, response);
+			
+			// peticion interna dentro del servidor
+			// request.getRequestDispatcher("privado/profesor").forward(request, response);
+			
+			// obligamos hacer una nueva peticion al cliente (browser)
+			response.sendRedirect( request.getContextPath() + "/privado/profesor");
+			
 			
 			
 		}else {

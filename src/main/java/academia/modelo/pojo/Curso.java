@@ -7,10 +7,8 @@ public class Curso {
 	private String identificador;
 	private int horas;
 	private Usuario profesor;
-	// TODO
-    // private ArrayList<Alumno> alumno
+	private int numAlumnos;
 
-	
 	
 	public Curso() {
 		super();
@@ -19,6 +17,7 @@ public class Curso {
 		this.identificador = "";
 		this.horas = 0;
 		this.profesor = new Usuario();
+		this.numAlumnos = 0;
 	}
 
 
@@ -83,16 +82,24 @@ public class Curso {
 
 
 
+	public int getNumAlumnos() {
+		return numAlumnos;
+	}
+
+
+
+	public void setNumAlumnos(int numAlumnos) {
+		this.numAlumnos = numAlumnos;
+	}
+
+
+
 	@Override
 	public String toString() {
 		return "Curso [id=" + id + ", nombre=" + nombre + ", identificador=" + identificador + ", horas=" + horas
-				+ ", profesor=" + profesor + "]";
+				+ ", profesor=" + profesor + ", numAlumnos=" + numAlumnos + "]";
 	}
-	
-	
-	
-	
-	
+
 	
 	
 }
