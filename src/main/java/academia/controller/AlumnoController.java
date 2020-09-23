@@ -1,18 +1,23 @@
 package academia.controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
 /**
  * Servlet implementation class AlumnoController
  */
 @WebServlet("/privado/alumno")
 public class AlumnoController extends HttpServlet {
+	
 	private static final long serialVersionUID = 1L;
+	private final static Logger LOG = Logger.getLogger(AlumnoController.class);
        
    
 
@@ -28,7 +33,7 @@ public class AlumnoController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		System.out.println("AlumnoController");
+		LOG.trace("AlumnoController");
 		request.setAttribute("mock", "***esto es de prueba mock***");
 		
 		request.getRequestDispatcher("alumno.jsp").forward(request, response);

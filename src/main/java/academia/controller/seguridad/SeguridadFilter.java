@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Logger;
+
 import academia.modelo.pojo.Usuario;
 
 /**
@@ -27,6 +29,9 @@ import academia.modelo.pojo.Usuario;
 		}
 					, urlPatterns = { "/privado/*" })
 public class SeguridadFilter implements Filter {
+	
+	
+	private final static Logger LOG = Logger.getLogger(SeguridadFilter.class);
 
     
 
@@ -34,7 +39,7 @@ public class SeguridadFilter implements Filter {
 	 * @see Filter#destroy()
 	 */
 	public void destroy() {
-		System.out.println("Filtro destruido");
+		LOG.trace("Filtro destruido");
 	}
 
 	/**
@@ -45,18 +50,18 @@ public class SeguridadFilter implements Filter {
 		HttpServletRequest request = (HttpServletRequest) req;
 		HttpServletResponse response = (HttpServletResponse) res;
 		
-		System.out.println("Filtrando url: " + request.getServletPath() );
+		LOG.debug("Filtrando url: " + request.getServletPath() );
 		
 		
 		HttpSession session = request.getSession();
 		Usuario uSession = (Usuario) session.getAttribute("usuario_sesion");
 		
 		if ( uSession == null ){
-			System.out.println("Usuario sin sesion iniciada o caducada ");
+			LOG.debug("Usuario sin sesion iniciada o caducada ");
 			response.sendRedirect( request.getContextPath() + "/login.jsp");
 			
 		}else {
-			System.out.println("Usuario logeado en sesion, podemos continuar");
+			LOG.debug("Usuario logeado en sesion, podemos continuar");
 			// pass the request along the filter chain
 			chain.doFilter(request, res);
 		}	
@@ -66,7 +71,7 @@ public class SeguridadFilter implements Filter {
 	 * @see Filter#init(FilterConfig)
 	 */
 	public void init(FilterConfig fConfig) throws ServletException {
-		System.out.println("Filtro iniciado");
+		LOG.trace("Filtro iniciado");
 	}
 
 }
