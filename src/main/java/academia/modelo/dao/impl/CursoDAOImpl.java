@@ -16,6 +16,20 @@ import academia.modelo.pojo.Usuario;
 public class CursoDAOImpl implements CursoDAO {
 
 	private final static Logger LOG = Logger.getLogger(CursoDAOImpl.class);
+	private static CursoDAOImpl INSTANCE = null;
+	
+	
+	private CursoDAOImpl() {
+		super();		
+	}
+	
+	public static synchronized CursoDAOImpl getInstance() {
+		if ( INSTANCE == null ) {
+			INSTANCE = new CursoDAOImpl();
+		}
+		return INSTANCE;
+	}
+
 
 	private final static String CONSULTA = " SELECT "
 			+ "	c.id as 'curso_id',  "

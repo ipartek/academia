@@ -13,6 +13,19 @@ import academia.modelo.pojo.Usuario;
 public class UsuarioDAOImpl implements UsuarioDAO {
 	
 	private final static Logger LOG = Logger.getLogger(UsuarioDAOImpl.class);
+	private static UsuarioDAOImpl INSTANCE = null;
+	
+	
+	private UsuarioDAOImpl() {
+		super();		
+	}
+	
+	public static synchronized UsuarioDAOImpl getInstance() {
+		if ( INSTANCE == null ) {
+			INSTANCE = new UsuarioDAOImpl();
+		}
+		return INSTANCE;
+	}
 
 	
 	private final static String SQL_BUSCAR = "SELECT id, nombre, apellidos, rol FROM usuarios WHERE nombre = ? AND password = MD5(?) ;"; 

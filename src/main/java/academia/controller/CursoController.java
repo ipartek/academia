@@ -28,9 +28,8 @@ public class CursoController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		
-		ArrayList<Curso> cursos = new ArrayList<Curso>();
-		//TODO singleton
-		CursoDAO dao = new CursoDAOImpl();		
+		ArrayList<Curso> cursos = new ArrayList<Curso>();	
+		CursoDAO dao = CursoDAOImpl.getInstance();		
 		cursos = dao.listar();
 		
 		request.setAttribute("cursos", cursos);

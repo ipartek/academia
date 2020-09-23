@@ -34,7 +34,7 @@ public class ProfesorController extends HttpServlet {
 		int idProfesor = profesor.getId();		
 		
 		// llamar al dao para recuperar cursos
-		CursoDAOImpl dao = new CursoDAOImpl();		
+		CursoDAOImpl dao = CursoDAOImpl.getInstance();			
 		ArrayList<Curso> cursos = dao.listarByProfesor(idProfesor);
 		
 		// ir a una vista y enviar atributos para pintar
