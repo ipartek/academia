@@ -7,9 +7,9 @@
             <div id="footer_social">
                 <p>¡Síguenos en nuestras redes sociales!</p>
                 <div id="footer_social_buttons">
-                <a><div class="facebook icono"></div></a>
-                <a><div class="instagram icono"></div></a>
-                <a><div class="twitter icono"></div></a>
+	                <a><span class="facebook icono"></span></a>
+	                <a><span class="instagram icono"></span></a>
+	                <a><span class="twitter icono"></span></a>
                 </div>
             </div>
             <div class="footer_menu col_2">
