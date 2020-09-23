@@ -1,7 +1,6 @@
 package academia.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import academia.modelo.dao.impl.UsuarioDAOImpl;
-import academia.modelo.pojo.Curso;
 import academia.modelo.pojo.Usuario;
 
 /**
